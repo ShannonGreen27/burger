@@ -2,7 +2,7 @@
 Here is where you create all the functions that will do the routing for your app, and the logic of each route.
 */
 var express = require('express');
-var router = express.Router();
+var router = express.router();
 var burger = require('../models/burger.js');
 
 router.get('/', function (req, res) {
@@ -18,7 +18,7 @@ router.get('/burgers', function (req, res) {
 });
 
 router.post('/burgers/create', function (req, res) {
-	cat.create(['name', 'sleepy'], [req.body.name, req.body.sleepy], function () {
+	burger.create(['burger_name', 'devoured'], [req.body.burger_name, req.body.devoured], function () {
 		res.redirect('/burgers');
 	});
 });
@@ -28,7 +28,7 @@ router.put('/burgers/update/:id', function (req, res) {
 
 	console.log('condition', condition);
 
-	cat.update({ sleepy: req.body.sleepy }, condition, function () {
+	burger.update({ devoured: req.body.devoured }, condition, function () {
 		res.redirect('/burgers');
 	});
 });
