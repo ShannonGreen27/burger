@@ -15,6 +15,7 @@ app.use(express.static(process.cwd() + '/public'));
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
+
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
 var exphbs = require('express-handlebars');
@@ -23,7 +24,7 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-var routes = require('./controllers/cats_controller.js');
+var routes = require('./controllers/burgers_controller.js');
 app.use('/', routes);
 
 var port = 3000;
